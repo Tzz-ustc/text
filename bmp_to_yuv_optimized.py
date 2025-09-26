@@ -40,7 +40,7 @@ def get_bmp_dimensions(file_path: str) -> Tuple[int, int]:
 
 
 def read_bmp_stream(file_path: str) -> Iterator[List[Tuple[int, int, int]]]:
-    """流式读取BMP像素数据,避免内存爆炸喵～"""
+    """流式读取BMP像素数据"""
     with open(file_path, 'rb') as f:
         validate_bmp_header(f)
 
@@ -211,7 +211,7 @@ def parse_args() -> Config:
 
 
 def main():
-    """主函数入口喵～"""
+    """主函数"""
     try:
         config = parse_args()
 
