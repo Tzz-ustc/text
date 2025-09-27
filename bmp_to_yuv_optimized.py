@@ -149,13 +149,13 @@ def process_folder_optimized(input_folder: str, output_folder: str, config: Conf
             try:
                 process_bmp_optimized(input_path, output_path, config)
             except BMPError as err:
-                print(f"❌ 文件格式错误 {filename}: {err}")
+                print(f"文件格式错误 {filename}: {err}")
             except Exception as err:
-                print(f"❌ 处理 {filename} 时出错: {err}")
+                print(f"处理 {filename} 时出错: {err}")
             finally:
                 pbar.update(1)
 
-    print(f"✅ 所有文件处理完成！输出到: {output_folder}")
+    print(f"所有文件处理完成！输出到: {output_folder}")
 
 
 def parse_args() -> Config:
@@ -196,11 +196,11 @@ def main():
         # 检查输入文件夹
         # 预先检查输入目录有效性, 早退出给出明确提示
         if not os.path.exists(config.input_folder):
-            print(f"❌ 输入文件夹不存在: {config.input_folder}")
+            print(f"输入文件夹不存在: {config.input_folder}")
             sys.exit(1)
 
         if not os.path.isdir(config.input_folder):
-            print(f"❌ 输入路径不是文件夹: {config.input_folder}")
+            print(f"输入路径不是文件夹: {config.input_folder}")
             sys.exit(1)
 
         print(f"🐱 浮浮酱的BMP转YUV优化工具启动！")
@@ -212,10 +212,10 @@ def main():
         process_folder_optimized(config.input_folder, config.output_folder, config)
 
     except KeyboardInterrupt:
-        print("\n⚠️ 用户中断操作")
+        print("\n用户中断操作")
         sys.exit(1)
     except Exception as e:
-        print(f"💥 程序异常: {e}")
+        print(f"程序异常: {e}")
         sys.exit(1)
 
 
